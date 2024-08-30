@@ -1,3 +1,5 @@
+My second and newest portfolio website! Build by using NextJS and powered up by the help of Aceternity UI component.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
