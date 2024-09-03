@@ -4,14 +4,18 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { InfiniteMovingCards } from "./infinite-moving-cards";
+import { FaGithub } from "react-icons/fa";
 
 type Tab = {
   tag: string;
   title: string;
   value: string;
   content?: string;
+  features: string[];
   images: string[];
   skills: string[];
+  github: string;
 };
 
 export const Tabs = ({
@@ -44,7 +48,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row flex-wrap items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
           containerClassName
         )}
       >
@@ -57,7 +61,7 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative px-4 py-2 mx-1 rounded-full dark:bg-zinc-900",
+              "relative px-4 py-2 mx-1 my-1 rounded-full dark:bg-zinc-700 dark:hover:bg-zinc-600",
               tabClassName
             )}
             style={{
@@ -69,14 +73,14 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-700 border-2 border-zinc-100 rounded-full ",
+                  "absolute inset-0 bg-gray-200 dark:bg-zinc-500 border-2 border-zinc-100 rounded-full ",
                   activeTabClassName
                 )}
               />
             )}
 
             <span className="relative block text-black dark:text-white">
-              {tab.title}
+              {tab.tag}
             </span>
           </button>
         ))}
@@ -113,25 +117,70 @@ export const FadeInDiv = ({
           key={tab.value}
           layoutId={tab.value}
           style={{
-            scale: 1 - idx * 0.1,
+            scale: 1 - idx * 0.15,
             top: hovering ? idx * -50 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
           }}
           animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
+            y: isActive(tab) ? [0, 30, 0] : 0,
           }}
           className={cn("w-full h-full absolute top-0 left-0", className)}
         >
-          <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-            <p>Random tab</p>
-            <Image
-              src={`/${tab.images[0]}`}
-              alt="dummy image"
-              width="1000"
-              height="1000"
-              className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
+          <div className="flex flex-col min-h-[50rem] w-full justify-between overflow-hidden relative rounded-2xl px-10 py-16 text-white bg-gradient-to-br from-slate-900 to-slate-600">
+            <div>
+              <p className="text-3xl font-semibold">{tab.title}</p>
+              <p className="mt-0.5 text-slate-400">{tab.tag}</p>
+            </div>
+            <InfiniteMovingCards
+              item={{
+                name: tab.title,
+                images: tab.images,
+              }}
+              direction="right"
+              speed="slow"
             />
+            <div>
+              <p>{tab.content}</p>
+              <br />
+              {tab.features.length != 0 ? (
+                <div>
+                  <p>Some of the features and functions included are: </p>
+                  {tab.features.map((feature, idx) => (
+                    <p key={feature}>✔️ {feature}</p>
+                  ))}
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <hr className="border-t border-slate-500 my-4" />
+            <div className="flex flex-row w-full justify-between">
+              <div className="flex flex-row flex-wrap">
+                {tab.skills.map((skill, idx) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1 mx-1 rounded-full border-2 border-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-500 dark:hover:text-l"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div className="mr-2">
+                {tab.github != "" ? (
+                  <a
+                    href={tab.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-4xl text-gray-300 hover:text-white transition-colors duration-100"
+                  >
+                    <FaGithub />
+                  </a>
+                ) : (
+                  <div></div>
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       ))}

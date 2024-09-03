@@ -2,9 +2,11 @@
 "use client";
 
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import { PinContainer } from "@/components/ui/3d-pin";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { CardStack } from "@/components/ui/card-stack";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { CardWithMovingBorder } from "@/components/ui/moving-border";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { Tabs } from "@/components/ui/tabs";
@@ -17,6 +19,7 @@ import { Link } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Roboto_Mono } from "next/font/google";
 import Image from "next/image";
+import { features } from "process";
 import { useState } from "react";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import {
@@ -39,10 +42,23 @@ import {
 } from "react-icons/hi";
 import { IoIosApps } from "react-icons/io";
 import { IoLogoFirebase } from "react-icons/io5";
-import { MdDarkMode, MdMenuOpen } from "react-icons/md";
+import {
+  MdDarkMode,
+  MdEmail,
+  MdMenuOpen,
+  MdOutlineLocalPhone,
+} from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { RiReactjsLine, RiNextjsFill } from "react-icons/ri";
-import { SiFlutter, SiMongodb } from "react-icons/si";
+import {
+  SiFacebook,
+  SiFlutter,
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+  SiMongodb,
+  SiPhonepe,
+} from "react-icons/si";
 import { VscSymbolInterface } from "react-icons/vsc";
 
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
@@ -58,6 +74,8 @@ const words =
 //     className: "text-blue-500 dark:text-blue-500",
 //   }
 // ]
+
+const images = ["coding.jpg", "coding2.png", "email.png"];
 
 const skills = [
   {
@@ -204,56 +222,219 @@ const educations = [
   },
 ];
 
-const temp = 'coding2.png'
-
 const tabs = [
   {
-    tag: 'Final Year Project',
-    title: "UmmiCare: Child Care App",
-    value: "ummicare",
-    content: 'UmmiCare: Child Care App',
-    images: [
-      'coding2.png'
-    ],
-    skills: [
-      'Flutter'
-    ]
-  },
-  {
-    tag: 'E-Commerce Site',
+    tag: "E-Commerce Site",
     title: "Electronic Store E-Commerce Website",
     value: "electronic",
-    content: 'Electronic Store E-Commerce Website',
+    content:
+      "E-commerce site for a electronic store, which include three main system, Customer, Admin and API. Angular is used for the frontend part while NestJS is applied in the development of the RESTful API. Also, I used Auth0 as authentication and implemented NgRX state management to manage the users and products state. Lastly, MongoDB is used as our NoSQL database.",
+    features: [
+      "Admin: Manage and monitor all items including add, delete and view purchases",
+      "Customer: View and purchase items",
+    ],
     images: [
-      'coding2.png'
+      "es/es-1.png",
+      "es/es-2.png",
+      "es/es-3.png",
+      "es/es-4.png",
+      "es/es-5.png",
+      "es/es-6.png",
+      "es/es-7.png",
+      "es/es-8.png",
+      "es/es-9.png",
+      "es/es-10.png",
+      "es/es-11.png",
     ],
     skills: [
-      'Flutter'
-    ]
+      "Angular",
+      "NgRX",
+      "PrimeNG",
+      "PrimeFlex",
+      "MongoDB",
+      "Auth0",
+      "NestJS",
+      "Github",
+    ],
+    github: "https://github.com/farhanaziz3112/electronic-store",
   },
   {
-    tag: 'Maps Clone',
-    title: "Maps Clone Apps",
-    value: "maps",
-    content: 'Maps Clone Apps',
+    tag: "Final Year Project: Web App",
+    title: "UmmiCare: Child Care App (Web App)",
+    value: "ummicare-web",
+    content:
+      "A project assigned for my final year project. It is a web application designed to assist the staffs and admins to manage all the children data and progress. Consists of four types of staff which are 'Admin', 'Teacher', 'Medical Staff' and 'Advisor'. Developed entirely with Flutter for the frontend, with authentication, data storage, database management, and deployment all handled by Firebase.",
+    features: [
+      "Admin: Manage all the staff evaluation and registration",
+      "Advisor: Supervise the growth and development of children assigned to them",
+      "Teacher: Manage all education details like examination and attendance",
+      "Medical staff: Manage all health details like clinic appointment and vaccination",
+    ],
     images: [
-      'coding2.png'
+      "ummicareweb/ummicareweb-1.png",
+      "ummicareweb/ummicareweb-2.png",
+      "ummicareweb/ummicareweb-3.png",
+      "ummicareweb/ummicareweb-5.png",
+      "ummicareweb/ummicareweb-6.png",
+      "ummicareweb/ummicareweb-7.png",
+    ],
+    skills: ["Flutter", "Android Studio", "Firebase", "Github"],
+    github: "https://github.com/farhanaziz3112/UmmiCare-web",
+  },
+  {
+    tag: "Final Year Project: Mobile App",
+    title: "UmmiCare: Child Care App (Mobile App)",
+    value: "ummicare-mobile",
+    content:
+      "This project is aimed to develop a child care guide application for parents to manage their children. It would give them a way to manage their children in various aspects which are health, education and profile. This designated application would help the parent user to keep track of everything. Developed entirely with Flutter for the frontend, with authentication, data storage, database management, and deployment all handled by Firebase.",
+    features: [
+      "Manage and monitor all the details about growth and development of the children",
+      "Manage all children health details such as vaccination and appointment information",
+      "View and supervise academic progress in school",
+    ],
+    images: [
+      "ummicaremobile/ummicaremobile-1.png",
+      "ummicaremobile/ummicaremobile-2.png",
+      "ummicaremobile/ummicaremobile-3.jpg",
+      "ummicaremobile/ummicaremobile-4.png",
+      "ummicaremobile/ummicaremobile-5.png",
+      "ummicaremobile/ummicaremobile-6.png",
+      "ummicaremobile/ummicaremobile-7.jpg",
+      "ummicaremobile/ummicaremobile-8.jpg",
+    ],
+    skills: ["Flutter", "Android Studio", "Firebase", "Github"],
+    github: "https://github.com/farhanaziz3112/UmmiCare-mobile",
+  },
+  {
+    tag: "Portfolio Website v1.0",
+    title: "Farhan-Aziz Portfolio Website v1.0",
+    value: "portfolio1",
+    content:
+      "My first ever portfolio website! This site showcases my projects, skills, and experiences as a software developer. The design is not really that fancy, but it does the work. This website is built using Angular for dynamic and responsive user interfaces, combined with basic CSS to create a clean and professional design. The site is fully responsive and aims to provide an engaging experience for visitors on both desktop and mobile devices.",
+    features: [],
+    images: [
+      "pf/pf-1.png",
+      "pf/pf-2.png",
+      "pf/pf-3.png",
+      "pf/pf-4.png",
+      "pf/pf-5.png",
+      "pf/pf-6.png",
+    ],
+    skills: ["Angular", "CSS", "Firebase", "Github"],
+    github: "https://github.com/farhanaziz3112/farhan-aziz-1.0",
+  },
+  {
+    tag: "AR Project",
+    title: "GreenCity AR iPad Challenge 2024",
+    value: "greencity",
+    content:
+      "In January 2024, I joined a competition focused on designing a green city using Augmented Reality. In this project, we were using 3D modelling and AR software on iPad, such as Shapr3D and Reality Composer, together with others software like iMovie and Freeform which were used for presentation and discussion purpose. This was totally a new experience to me, as this is something I am not really familiar with. But at the end, I really enjoyed learning new things, including 3D modelling, augmented reality and how to design and construct a green and sustainable city. And not forget to mention, we got 4th place out of 64 teams!",
+    features: [],
+    images: [
+      "ar/ar-1.PNG",
+      "ar/ar-2.png",
+      "ar/ar-3.png",
+      "ar/ar-4.png",
+      "ar/ar-5.png",
+      "ar/ar-6.PNG",
+      "ar/ar-7.PNG",
+      "ar/ar-8.PNG",
+      "ar/ar-9.PNG",
     ],
     skills: [
-      'Flutter'
-    ]
+      "3D Modelling",
+      "Augmented Reality",
+      "Shapr3D",
+      "Reality Composer",
+    ],
+    github: "",
   },
   {
-    tag: 'Robotic Simulation',
+    tag: "Robotic Simulation",
     title: "Webots: Robotic Garbage Truck",
     value: "robot",
-    content: 'Webots: Robotic Garbage Truck',
+    content:
+      "This project was actually for a subject called Real Time System, during my 3rd year. We analysed, designed and coded a real-time computer program using Python and Webots to automate the process of garbage collection in neighbourhoods. The simulation program is called Garbage Truck Robot (GTR), which includes a neighbourhood with three houses, a wheeled robot and a cuboid to represent the trash. What the robot will do is follow the black line using infrared sensor, stop by at each of the houses, pick up the cube using its robotic arms and lastly, return to the designated final station.",
+    features: [],
     images: [
-      'coding2.png'
+      "gtr/gtr-1.png",
+      "gtr/gtr-2.png",
+      "gtr/gtr-3.png",
+      "gtr/gtr-4.png",
+      "gtr/gtr-5.png",
+      "gtr/gtr-6.png",
     ],
-    skills: [
-      'Flutter'
-    ]
+    skills: ["Webots", "Python", "3D Modelling"],
+    github: "",
+  },
+  {
+    tag: "The Sociopath",
+    title: "Data Structure Project: The Sociopath",
+    value: "sociopath",
+    content:
+      "One of my project during first year. We were assigned to create a project called The Sociopath that acts as a friendship monitoring system. The program is a one-point-of-view system where you also register as one of the students in the friendship monitoring system. Fully developed using Java, which also included a little bit of GUI by JavaFX.",
+    features: [
+      "Teaching a stranger to solve questions",
+      "Chit chat among all the students",
+      "Meeting with your crush",
+    ],
+    images: ["sp/sp-1.png", "sp/sp-2.png", "sp/sp-3.png", "sp/sp-4.png"],
+    skills: ["Java", "JavaFX"],
+    github: "https://github.com/marshmirullo/projectichi?tab=readme-ov-file",
+  },
+  // {
+  //   tag: "Maps Clone",
+  //   title: "Maps Clone Apps",
+  //   value: "maps2",
+  //   content: "Maps Clone Apps",
+  //   features: [
+  //     "Admin: Manage all the staff evaluation and registration",
+  //     "Advisor: Supervise the growth and development of children assigned to them",
+  //     "Teacher: Manage all education details like examination and attendance",
+  //     "Medical staff: Manage all health details like clinic appointment and vaccination",
+  //   ],
+  //   images: ["coding2.png"],
+  //   skills: ["Flutter"],
+  //   github: "",
+  // },
+];
+
+const contacts = [
+  {
+    title: "Phone",
+    content: "018-2026040",
+    logo: <MdOutlineLocalPhone />,
+    link: "",
+  },
+  {
+    title: "Email",
+    content: "farhanaziz3112@gmail.com",
+    logo: <MdEmail />,
+    link: "mailto:farhanaziz3112@gmail.com",
+  },
+  {
+    title: "Instagram",
+    content: "@farhanaziz___",
+    logo: <SiInstagram />,
+    link: "https://www.instagram.com/farhanaziz___?igsh=aThjYzZ6YzAzOG9n&utm_source=qr",
+  },
+  {
+    title: "Github",
+    content: "farhanaziz3112",
+    logo: <SiGithub />,
+    link: "https://github.com/farhanaziz3112",
+  },
+  {
+    title: "LinkedIn",
+    content: "Muhammad Farhan Aziz",
+    logo: <SiLinkedin />,
+    link: "https://www.linkedin.com/in/muhammad-farhan-aziz-5bb327219/",
+  },
+  {
+    title: "Facebook",
+    content: "Muhammad Farhan Aziz",
+    logo: <SiFacebook />,
+    link: "https://www.facebook.com/muhammad.f.aziz.127?mibextid=LQQJ4d",
   },
 ];
 
@@ -517,7 +698,7 @@ export default function Home() {
       <div className="mt-20 w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col overflow-hidden">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
-        <section id="skills" className="py-20">
+        <section id="skills-projects" className="py-20">
           <ContainerScroll
             titleComponent={
               <>
@@ -565,7 +746,7 @@ export default function Home() {
       <div className="mt-20 w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
-        <section id="skills" className="pt-20 px-40 w-full">
+        <section id="" className="pt-20 px-40 w-full">
           <div className="flex flex-col w-full relative items-start justify-center z-10">
             <CardWithMovingBorder
               borderRadius="1.75rem"
@@ -579,19 +760,63 @@ export default function Home() {
                 <h1 className="text-2xl font-semibold">Projects</h1>
               </div>
             </CardWithMovingBorder>
-            <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start pt-10">
+
+            <div className="relative flex flex-col min-h-[70rem] w-full items-start justify-start pt-10">
               <Tabs tabs={tabs} />
             </div>
           </div>
         </section>
       </div>
-      <section id="projects" className="py-20">
-        <h1 className="text-4xl font-bold">Projects</h1>
-      </section>
-      <section id="contact" className="py-20">
-        <h1 className="text-4xl font-bold">Contact</h1>
-      </section>
-
+      <div className="mt-20 mb-44 w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
+        <section id="contact" className="pt-20 px-40 w-full">
+          <div className="flex flex-col w-full relative items-start justify-center z-10">
+            <CardWithMovingBorder
+              borderRadius="1.75rem"
+              className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+              containerClassName="w-64"
+            >
+              <div className="flex flex-row items-center justify-center gap-2">
+                <span className="text-2xl">
+                  <FaCaretRight />
+                </span>
+                <h1 className="text-2xl font-semibold">Contact</h1>
+              </div>
+            </CardWithMovingBorder>
+            <div className="grid grid-cols-3 gap-4 mt-10 w-full">
+              {contacts.map((contact, idx) => (
+                <div
+                  key={contact.title}
+                  className="w-full flex items-center justify-center"
+                  suppressHydrationWarning
+                >
+                  <PinContainer
+                    title={`${contact.title}`}
+                    content={`${contact.content}`}
+                    href={`${contact.link}`}
+                  >
+                    <div className="flex w-full flex-col gap-2 p-4 tracking-tight text-slate-100/50">
+                      <div className="flex flex-row items-center gap-2">
+                        <span className="text-2xl text-natural-300">
+                          {contact.logo}
+                        </span>
+                        <h3 className="font-bold text-base text-slate-100">
+                          {contact.title}
+                        </h3>
+                      </div>
+                      {/* <h4 className="text-slate-100 text-l">{contact.content}</h4> */}
+                    </div>
+                  </PinContainer>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full h-[80px] bottom-0 bg-slate-700">
+        <h5>Footer</h5>
+      </div>
       <div
         className={`fixed top-0 right-0 h-full w-16 bg-gradient-to-l from-indigo-950 to-transparent flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
           hover ? "w-48" : "w-16"
@@ -639,7 +864,7 @@ export default function Home() {
             </span>
           </a>
           <a
-            href="#skills"
+            href="#skills-projects"
             className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
           >
             <HiOutlineCode className="text-xl" />
@@ -650,7 +875,7 @@ export default function Home() {
             </span>
           </a>
           <a
-            href="#projects"
+            href="#skills-projects"
             className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
           >
             <IoIosApps className="text-xl" />
