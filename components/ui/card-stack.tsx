@@ -47,12 +47,12 @@ export const CardStack = ({
   };
 
   return (
-    <div className="relative h-60 w-60 md:h-60 md:w-96 flex items-center justify-between">
+    <div className="relative h-60 w-full flex items-center justify-center">
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute dark:bg-black bg-white h-30 w-96 md:h-30 md:w-96 rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.15] shadow-black/[0.1] dark:shadow-rose-500/[0.25] flex flex-row justify-between"
+            className="absolute dark:bg-black bg-white h-30 w-56 sm:w-96 rounded-3xl p-4 shadow-xl border border-neutral-300 dark:border-white/[0.15] shadow-rose-500/[0.1] dark:shadow-rose-500/[0.25] flex flex-row justify-between"
             style={{
               transformOrigin: "center center",
             }}
@@ -66,7 +66,7 @@ export const CardStack = ({
             }}
           >
             <div className="flex flex-row justify-between items-center">
-              <span>
+              <span className="text-[10px] sm:text-sm md:text-base">
                 {card.type == "web" ? (
                   <HiOutlineDesktopComputer  />
                 ) : card.type == "mobile" ? (
@@ -79,7 +79,7 @@ export const CardStack = ({
                   <FaDatabase />
                 )}
               </span>
-              <div className="ml-2 font-semibold text-l text-neutral-700 dark:text-neutral-200">
+              <div className="ml-2 font-semibold text-[8px] sm:text-xs md:text-base text-neutral-700 dark:text-neutral-200">
                 {card.name}
               </div>
             </div>
@@ -91,7 +91,7 @@ export const CardStack = ({
               {Array.from({ length: 5 }).map((_, i) => (
                 <span
                   key={i}
-                  className={`h-2.5 w-2.5 rounded-full ${
+                  className={`h-1 w-1 sm:h-2.5 sm:w-2.5 rounded-full ${
                     i < card.skillpoint ? "bg-blue-500" : "bg-gray-300"
                   }`}
                 />

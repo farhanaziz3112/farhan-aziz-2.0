@@ -22,15 +22,16 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
+        "grid grid-cols-2 lg-m:grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 py-10",
         className
       )}
     >
       {items.map((item, idx) => (
         <div
-          className="relative group block p-2 h-full w-full"
+          className="relative group block p-1 sm:p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          key={item.id}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
@@ -51,31 +52,48 @@ export const HoverEffect = ({
           </AnimatePresence>
           <div
             className={cn(
-              "rounded-xl h-full w-full p-4 overflow-hidden bg-black border border-2 border-transparent dark:border-white/[0.3] group-hover:border-slate-500 relative z-20",
+              "rounded-xl h-full w-full p-4 overflow-hidden bg-white dark:bg-black border border-2 border-neutral-400 dark:border-white/[0.3] sm:group-hover:border-slate-500 relative z-20",
               className
             )}
           >
             <div className="relative z-50">
-              <div className="p-4 flex flex-col items-center justify-center">
-                {item.logo}
-                <h4
+              <div className="p-2 lg:p-4 flex flex-col items-center justify-center">
+                <span className="text-xl lg-m:text-3xl lg:text-5xl">
+                  {item.logo}
+                </span>
+                <span
                   className={cn(
-                    "text-zinc-100 font-bold text-center tracking-wide mt-4 text-slate-400 group-hover:text-white",
+                    "text-[8px] lg-m:text-[10px] lg:text-base text-black font-bold text-center tracking-wide mt-4 dark:text-white sm:dark:text-slate-400 sm:dark:group-hover:text-white",
                     className
                   )}
                 >
                   {item.name}
-                </h4>
-                <div className="mt-2 flex space-x-1 justify-center items-center">
-                  {hoveredIndex === idx ?
-                    Array.from({ length: 5 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className={`h-1.5 w-1.5 rounded-full ${
-                          i < item.skillpoint ? "bg-blue-500" : "bg-gray-300"
-                        }`}
-                      />
-                    )) : <span className="h-1.5 w-1.5"></span>}
+                </span>
+                <div className="hidden sm:block">
+                  <div className="mt-2 flex space-x-1 justify-center items-center">
+                    {hoveredIndex === idx ? (
+                      Array.from({ length: 5 }).map((_, i) => (
+                        <span
+                          key={i}
+                          className={`h-1.5 w-1.5 rounded-full ${
+                            i < item.skillpoint ? "bg-blue-500" : "bg-gray-300"
+                          }`}
+                        />
+                      ))
+                    ) : (
+                      <span className="h-1.5 w-1.5"></span>
+                    )}
+                  </div>
+                </div>
+                <div className="block sm:hidden mt-2 flex space-x-1 justify-center items-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        i < item.skillpoint ? "bg-blue-500" : "bg-gray-300"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -100,7 +118,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-2 border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden dark:bg-black border border-2 border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
         className
       )}
     >

@@ -88,7 +88,7 @@ export const InfiniteMovingCards = ({
       >
         {item.images.map((img, idx) => (
           <li
-            className="overflow-hidden h-[300px] w-auto relative rounded-2xl flex-shrink-0"
+            className="overflow-hidden h-[100px] lg-m:h-[150px] sm:h-[200px] lg:h-[300px] w-auto relative rounded-md flex-shrink-0"
             key={img}
           >
             <blockquote className="h-full w-auto">
@@ -103,7 +103,7 @@ export const InfiniteMovingCards = ({
                   width="1000"
                   height="1000"
                   // layout="fill"
-                  className="object-cover rounded-xl h-full w-auto"
+                  className="object-cover rounded h-full w-auto"
                 />
               </div>
             </blockquote>
