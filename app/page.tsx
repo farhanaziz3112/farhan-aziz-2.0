@@ -580,7 +580,7 @@ export default function Home() {
             <div className="col-span-3 2xl:col-span-2">
               <div className="grid grid-cols-2 gap-2 sm:gap-4">
                 <WobbleCard containerClassName="col-span-2 sm:col-span-1 h-auto bg-teal-950">
-                  <h2 className="max-w-80 text-left text-balance text-sm lg-m:text-base  sm:text-xs md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  <h2 className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                     018-2026040
                   </h2>
                   <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs md:text-base/6 text-neutral-200">
@@ -604,7 +604,7 @@ export default function Home() {
                   /> */}
                 </WobbleCard>
                 <WobbleCard containerClassName="col-span-2 sm:col-span-1 h-auto bg-cyan-950">
-                  <p className="max-w-80 text-left text-balance text-sm lg-m:text-base sm:text-xs lg:text-xl font-semibold tracking-[-0.015em] text-white">
+                  <p className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs lg:text-xl font-semibold tracking-[-0.015em] text-white">
                     farhanaziz3112@gmail.com
                   </p>
                   <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs text-neutral-200">
@@ -621,7 +621,7 @@ export default function Home() {
                 <WobbleCard containerClassName="col-span-2 bg-indigo-950 h-auto">
                   <div className="grid grid-cols-2 h-full w-full gap-2">
                     <div className="col-span-2 lg-m:col-span-1 flex flex-col justify-center">
-                      <h2 className="text-left text-balance text-base md:text-base lg:text-2xl font-semibold tracking-[-0.015em] text-white">
+                      <h2 className="text-left text-balance text-xs md:text-base lg:text-2xl font-semibold tracking-[-0.015em] text-white">
                         Full Stack Developer
                       </h2>
                       <p className="mt-4 text-left text-neutral-200 text-[10px] lg-m:text-xs md:text-base lg:text-lg">
@@ -680,7 +680,7 @@ export default function Home() {
                 my skills and vision.
               </p>
             </div>
-            <div className="hidden md:block flex flex-1 justify-center items-center z-10">
+            <div className="hidden md:block flex flex-1 justify-center items-center">
               <CardContainer className="inter-var">
                 <CardItem translateZ="100" className="w-full">
                   <Image
@@ -732,7 +732,7 @@ export default function Home() {
                 way for my career.
               </p>
             </div>
-            <div className="hidden md:block flex flex-1 justify-center items-center z-10">
+            <div className="hidden md:block flex flex-1 justify-center items-center">
               <CardContainer className="inter-var">
                 <CardItem translateZ="100" className="w-full">
                   <Image
@@ -781,7 +781,7 @@ export default function Home() {
       <div className="w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
-        <div className="flex flex-col w-full relative items-start justify-center z-10 pt-10 px-8 sm:px-12 md:px-20 lg:px-32 xl:px-40">
+        <div className="flex flex-col w-full relative items-start justify-center pt-10 px-8 sm:px-12 md:px-20 lg:px-32 xl:px-40">
           <div className="flex flex-col w-full relative items-center lg:items-start justify-center">
             <CardWithMovingBorder
               borderRadius="1.75rem"
@@ -805,7 +805,7 @@ export default function Home() {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
         <section id="" className="pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full">
-          <div className="flex flex-col w-full relative items-start justify-center z-10">
+          <div className="flex flex-col w-full relative items-start justify-center">
             <div className="flex flex-col w-full relative items-center lg:items-start justify-center">
               <CardWithMovingBorder
                 borderRadius="1.75rem"
@@ -833,7 +833,7 @@ export default function Home() {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
         <section id="contact" className="pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full">
-          <div className="flex flex-col w-full relative items-start justify-center z-10">
+          <div className="flex flex-col w-full relative items-start justify-center">
             <div className="flex flex-col w-full relative items-center lg:items-start justify-center">
               <CardWithMovingBorder
                 borderRadius="1.75rem"
@@ -893,14 +893,14 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <div
-        className={`fixed top-0 right-0 h-full w-16 bg-gradient-to-l from-neutral-400 dark:from-indigo-950 to-transparent flex flex-col items-center justify-center transition-all duration-300 ease-in-out z-2000 ${
-          hover ? "w-48" : "w-16"
+      <div
+        className={`hidden md:block fixed top-0 right-0 h-full w-16 bg-gradient-to-l from-neutral-400 dark:from-indigo-950 to-transparent flex flex-col items-center justify-center transition-all duration-300 ease-in-out z-3000 ${
+          hover ? "w-48" : "w-20"
         }`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="text-xl">{hover ? <div></div> : <FaEllipsisV />}</div>
+        <div className="text-xl fixed top-1/2 right-4">{hover ? <div></div> : <FaEllipsisV />}</div>
         <nav
           className={`mt-10 pr-5 flex flex-col items-end space-y-4 text-white transition-opacity duration-300 ${
             hover ? "opacity-100" : "opacity-0"
@@ -973,7 +973,7 @@ export default function Home() {
             </span>
           </a>
         </nav>
-      </div> */}
+      </div>
     </main>
   );
 }

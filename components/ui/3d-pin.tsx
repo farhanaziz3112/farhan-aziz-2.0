@@ -31,7 +31,7 @@ export const PinContainer = ({
   return (
     <Link
       className={cn(
-        "relative group/pin z-50 cursor-pointer w-full flex",
+        "relative group/pin cursor-pointer w-full flex",
         containerClassName
       )}
       onMouseEnter={onMouseEnter}
@@ -53,7 +53,7 @@ export const PinContainer = ({
           }}
           className="p-4 w-full flex justify-start items-start rounded-2xl shadow-[0_1px_4px_rgb(0_0_0/0.4)] bg-white border-neutral-300 dark:bg-black border dark:border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
         >
-          <div className={cn(" relative z-50 ", className)}>{children}</div>
+          <div className={cn(" relative ", className)}>{children}</div>
         </div>
       </div>
       <div
@@ -62,7 +62,7 @@ export const PinContainer = ({
         <div
           className="p-2 w-full flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] hover:bg-neutral-200 bg-white border-neutral-300 hover:dark:bg-neutral-900 dark:bg-black border dark:border-white/[0.1] overflow-hidden"
         >
-          <div className={cn(" relative z-50 ", className)}>{children}</div>
+          <div className={cn(" relative ", className)}>{children}</div>
         </div>
       </div>
       <div className="hidden sm:block">

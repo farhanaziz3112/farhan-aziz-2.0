@@ -156,8 +156,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     {item.place}
                   </h3>
                 </div>
-                <div className="flex-1 w-full dark:bg-black bg-white dark:bg-grid-small-white/[0.5] bg-grid-small-black/[0.8]">
-                  <div className="absolute inset-0 pointer-events-none dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
+                {/* <div className="flex-1 w-full dark:bg-black bg-white dark:bg-grid-small-white/[0.5] bg-grid-small-black/[0.8]"> */}
+                <div className="flex-1 w-full">
+                  {/* <div className="inset-0 pointer-events-none dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div> */}
                   <div className="p-8">
                     <BackgroundGradient className="rounded-[22px] p-8 bg-white dark:bg-zinc-900">
                       <p className="text-xs sm:text-base md:text-lg text-black mb-2 dark:text-neutral-200">
@@ -201,8 +202,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                       {item.place}
                     </h3>
                   </div>
-                  <div className="flex-1 w-full dark:bg-black bg-white dark:bg-grid-small-white/[0.5] bg-grid-small-black/[0.8]">
-                    <div className="z-1 absolute inset-0 pointer-events-none dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
+                  <div className="flex-1 w-full">
+                  {/* <div className="flex-1 w-full dark:bg-black bg-white dark:bg-grid-small-white/[0.5] bg-grid-small-black/[0.8]"> */}
+                    {/* <div className="z-1 absolute inset-0 pointer-events-none dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div> */}
                     <div className="pl-2 py-6 pr-8 sm:p-8">
                       <BackgroundGradient className="rounded-[22px] p-4 sm:p-8 bg-white dark:bg-zinc-900">
                         <p className="text-[10px] lg-m:text-xs sm:text-base md:text-lg text-black mb-2 dark:text-neutral-200">
@@ -224,7 +226,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute left-12 sm:left-16 lg:  left-1/2 transform translate-x-1/2 top-0 overflow-hidden w-[2px] bg-neutral-300 dark:bg-neutral-700 items-center justify-center"
+          className="absolute left-12 sm:left-16 lg:left-1/2 transform translate-x-1/2 top-0 overflow-hidden w-[2px] bg-neutral-300 dark:bg-neutral-700 items-center justify-center"
         >
           <motion.div
             style={{

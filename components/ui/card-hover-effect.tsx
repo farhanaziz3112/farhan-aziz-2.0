@@ -52,11 +52,11 @@ export const HoverEffect = ({
           </AnimatePresence>
           <div
             className={cn(
-              "rounded-xl h-full w-full p-4 overflow-hidden bg-white dark:bg-black border border-2 border-neutral-400 dark:border-white/[0.3] sm:group-hover:border-slate-500 relative z-20",
+              "rounded-xl h-full w-full p-4 overflow-hidden bg-white dark:bg-black border border-2 border-neutral-400 dark:border-white/[0.3] sm:group-hover:border-slate-500 relative",
               className
             )}
           >
-            <div className="relative z-50">
+            <div className="relative">
               <div className="p-2 lg:p-4 flex flex-col items-center justify-center">
                 <span className="text-xl lg-m:text-3xl lg:text-5xl">
                   {item.logo}
@@ -118,11 +118,11 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden dark:bg-black border border-2 border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden dark:bg-black border border-2 border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative",
         className
       )}
     >
-      <div className="relative z-50">
+      <div className="relative">
         <div className="p-4">{children}</div>
       </div>
     </div>
