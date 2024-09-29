@@ -97,13 +97,14 @@ export const InfiniteMovingCards = ({
                 className="user-select-none -z-1 pointer-events-none absolute"
               ></div>
               <div className="relative z-20 flex flex-row items-center h-full w-auto">
-                <Image
+                <img
                   src={`/${img}`}
                   alt={`${item.name}`}
                   width="1000"
                   height="1000"
                   // layout="fill"
                   className="object-cover rounded h-full w-auto"
+                  loading="lazy"
                 />
               </div>
             </blockquote>
