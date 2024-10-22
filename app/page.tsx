@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
@@ -484,7 +485,7 @@ export default function Home() {
             </CardItem>
           </CardContainer>
           <p className="text-sm md-m:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold relative z-20 bg-clip-text text-slate-950 dark:text-white">
-            Muhammad Farhan Bin Abd Aziz
+            Farhan Aziz
           </p>
           <p className="text-[10px] md-m:text-xs sm:text-sm md:text-base lg:text-xl relative z-20 bg-clip-text mt-3">
             Software Engineer | Full Stack Developer
