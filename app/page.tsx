@@ -418,21 +418,6 @@ const tabs = [
     skills: ["Java", "JavaFX"],
     github: "https://github.com/marshmirullo/projectichi?tab=readme-ov-file",
   },
-  // {
-  //   tag: "Maps Clone",
-  //   title: "Maps Clone Apps",
-  //   value: "maps2",
-  //   content: "Maps Clone Apps",
-  //   features: [
-  //     "Admin: Manage all the staff evaluation and registration",
-  //     "Advisor: Supervise the growth and development of children assigned to them",
-  //     "Teacher: Manage all education details like examination and attendance",
-  //     "Medical staff: Manage all health details like clinic appointment and vaccination",
-  //   ],
-  //   images: ["coding2.png"],
-  //   skills: ["Flutter"],
-  //   github: "",
-  // },
 ];
 
 const contacts = [
@@ -490,7 +475,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen w-auto flex-col justify-between dark:bg-black">
+      <main className="flex min-h-screen w-auto flex-col justify-between dark:bg-black overflow-hidden">
         <div className="h-[50rem] w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-start flex flex-col">
           <div className="flex w-full pt-20 px-8 lg-m:px-10 md:px-20 relative z-30 justify-between">
             <p className="decoration-gray-50 roboto-mono text-xs md-m:text-base lg:text-xl">

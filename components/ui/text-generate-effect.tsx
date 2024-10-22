@@ -89,7 +89,7 @@ export const TextGenerateEffect = ({
     <FadeInSection direction="right">
       <div className={cn(className)} ref={sectionRef}>
         <div className="mt-4">
-          <div className=" dark:text-white text-black text-[10px] sm:text-sm md:text-lg lg:text-2xl leading-snug tracking-wide">
+          <div className=" dark:text-white text-black text-sm md:text-lg lg:text-2xl leading-snug tracking-wide">
             {isVisible && renderWords()}
           </div>
         </div>
