@@ -18,14 +18,14 @@ const config = {
   prefix: "",
   theme: {
     screens: {
-      'sm-m': '320px',  // Small mobile devices
-      'md-m': '375px',  // Medium mobile devices
-      'lg-m': '414px',  // Large mobile devices
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      "sm-m": "320px", // Small mobile devices
+      "md-m": "375px", // Medium mobile devices
+      "lg-m": "414px", // Large mobile devices
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     container: {
       center: true,
@@ -86,12 +86,17 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        fadeIn: "fadeIn 1s ease-in-out",
       },
     },
   },

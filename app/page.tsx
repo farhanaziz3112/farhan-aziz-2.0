@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
+import FadeInSection from "@/components/fadeInSection";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { PinContainer } from "@/components/ui/3d-pin";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
@@ -65,18 +66,7 @@ import { VscSymbolInterface } from "react-icons/vsc";
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 const words =
-  "Hi everyone!👋🏻\r\r I am Farhan, a dedicated Software Engineer currently working at Metabit Sdn Bhd in Johor, Malaysia. I hold a Bachelor's degree in Computer Science (Software Engineering) from the University of Malaya.\r\rWith my skills, I am committed to keep improving and adapting to evolving technologies nowadays. Down to connect? Let’s make something dope together!";
-// const words2 = [
-//   {
-//     text: "Hi everyone! I am Farhan, a dedicated Software Engineer currently working at Metabit Sdn Bhd in Johor, Malaysia. I hold a Bachelor's degree in Computer Science (Software Engineering) from the University of Malaya.\r\rWith my existing skills, I am committed to keep improving and adapting to evolving technologies nowadays. Looking forward to connecting with you and sharing our journey of learning and growth!"
-//   },
-//   {
-//     text: "Let’s vibe and create something cool together!",
-//     className: "text-blue-500 dark:text-blue-500",
-//   }
-// ]
-
-const images = ["coding.jpg", "coding2.png", "email.png"];
+  "Hi everyone!👋🏻\r\rI am Farhan, a dedicated Software Engineer currently working at Metabit Sdn Bhd in Johor, Malaysia. I hold a Bachelor's degree in Computer Science (Software Engineering) from the University of Malaya.\r\rWith my skills, I am committed to keep improving and adapting to evolving technologies nowadays. Down to connect? Let’s make something dope together!";
 
 const skills = [
   {
@@ -120,7 +110,9 @@ const skills = [
     name: "Java,Python",
     skillpoint: 5,
     type: "code",
-    logo: <FaCode className="text-green-500 sm:text-slate-400 sm:group-hover:text-green-500" />,
+    logo: (
+      <FaCode className="text-green-500 sm:text-slate-400 sm:group-hover:text-green-500" />
+    ),
   },
   {
     id: 5,
@@ -145,14 +137,18 @@ const skills = [
     name: "Angular",
     skillpoint: 3,
     type: "web",
-    logo: <FaAngular className="text-red-500 sm:text-slate-400 sm:group-hover:text-red-500" />,
+    logo: (
+      <FaAngular className="text-red-500 sm:text-slate-400 sm:group-hover:text-red-500" />
+    ),
   },
   {
     id: 8,
     name: "MongoDB",
     skillpoint: 3,
     type: "database",
-    logo: <SiMongodb className="text-green-600 sm:text-slate-400 sm:group-hover:text-green-600" />,
+    logo: (
+      <SiMongodb className="text-green-600 sm:text-slate-400 sm:group-hover:text-green-600" />
+    ),
   },
 ];
 
@@ -254,6 +250,33 @@ const tabs = [
     github: "https://github.com/farhanaziz3112/electronic-store",
   },
   {
+    tag: "Maps Clone",
+    title: "Google Maps Clone",
+    value: "maps",
+    content:
+      "This project is a Google Maps Clone. Using the Google Maps API and developed with Angular framework and PrimeNG UI library, I created a simple navigation website where the user can do some of the basic functionalities that you can find in Google Maps.",
+    features: [
+      "Place search based on the types like cafe, bank and mosque",
+      "Place search using autocomplete features",
+      "Place review, including photos, address, contact number and people reviews",
+      "Direction feature to any place",
+      "For my practice purpose: random location generator, device location, coordinate search",
+    ],
+    images: [
+      "mc/mc-1.png",
+      "mc/mc-2.png",
+      "mc/mc-3.png",
+      "mc/mc-4.png",
+      "mc/mc-5.png",
+      "mc/mc-6.png",
+      "mc/mc-7.png",
+      "mc/mc-8.png",
+      "mc/mc-9.png",
+    ],
+    skills: ["Angular", "Google MAPS API", "PrimeNG", "PrimeFlex", "Github"],
+    github: "https://github.com/farhanaziz3112/maps-clone",
+  },
+  {
     tag: "Final Year Project: Web App",
     title: "UmmiCare: Child Care App (Web App)",
     value: "ummicare-web",
@@ -299,6 +322,25 @@ const tabs = [
     ],
     skills: ["Flutter", "Android Studio", "Firebase", "Github"],
     github: "https://github.com/farhanaziz3112/UmmiCare-mobile",
+  },
+  {
+    tag: "Portfolio Website v2.0",
+    title: "Farhan-Aziz Portfolio Website v2.0",
+    value: "portfolio2",
+    content:
+      "My second and newest portfolio website! Build by using NextJS and powered up by the help of Aceternity UI component. This site showcases my projects, skills, and experiences as a software developer. This website is built using NextJS for dynamic and responsive user interfaces, combined with Tailwind CSS to create a clean and modern design, with both dark and light mode. The site is fully responsive and aims to provide an engaging experience for visitors on both desktop and mobile devices.",
+    features: [],
+    images: [
+      "pf2/pf-1.png",
+      "pf2/pf-2.png",
+      "pf2/pf-3.png",
+      "pf2/pf-4.png",
+      "pf2/pf-5.png",
+      "pf2/pf-6.png",
+      "pf2/pf-7.png",
+    ],
+    skills: ["NextJS", "Tailwind CSS", "Firebase", "Github"],
+    github: "https://github.com/farhanaziz3112/farhan-aziz-2.0",
   },
   {
     tag: "Portfolio Website v1.0",
@@ -460,8 +502,9 @@ export default function Home() {
             >
               <span className="absolute hidden sm:block inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] rounded-full" />
               <span
-                className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-2xl font-medium text-white backdrop-blur-3xl ${isDarkMode ? "bg-blue-950" : "bg-slate-950"
-                  }`}
+                className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-2xl font-medium text-white backdrop-blur-3xl ${
+                  isDarkMode ? "bg-blue-950" : "bg-slate-950"
+                }`}
               >
                 {isDarkMode ? (
                   <MdLightMode className="text-slate-50" />
@@ -501,7 +544,10 @@ export default function Home() {
                 <CardStack items={skills} />
               </div>
               <div className="col-span-1 xl:col-span-2">
-                <div className="flex flex-col" style={{ whiteSpace: "pre-line" }}>
+                <div
+                  className="flex flex-col"
+                  style={{ whiteSpace: "pre-line" }}
+                >
                   <TextGenerateEffect words={words} />
                 </div>
               </div>
@@ -531,117 +577,107 @@ export default function Home() {
                 </div>
               </CardWithMovingBorder>
             </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-4 mx-auto w-full mt-8">
-              <WobbleCard
-                containerClassName="col-span-3 2xl:col-span-1 bg-slate-900 h-auto"
-                className=""
+              <FadeInSection
+                direction="left"
+                className="col-span-3 2xl:col-span-1 h-auto"
               >
-                {/* <div className="flex flex-row 2xl:flex-col items-center gap-8 2xl:gap-0">
-                <div className="flex items-center justify-center">
-                  <img
-                    src="/farhan2.jpg"
-                    width={200}
-                    height={200}
-                    alt="linear demo image"
-                    className="rounded-2xl"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="mt-4 text-left text-thin md:text-sm lg:text-2xl 2xl:text-base/6 text-neutral-200">
-                    Full name is Muhammad Farhan Bin Abd Aziz,
-                  </p>
-                  <h2 className="text-left text-balance md:text-xl lg:text-3xl 2xl:text-2xl font-semibold tracking-[-0.015em] text-white">
-                    but you can call me Farhan!
-                  </h2>
-                </div>
-              </div> */}
-                <div className="grid grid-cols-3 gap-x-4 sm:gap-x-6 md:gap-x-10">
-                  <div className="col-span-1 2xl:col-span-3">
-                    <div className="flex w-full items-center justify-center">
-                      <img
-                        src="/farhan2.jpg"
-                        width={200}
-                        height={200}
-                        alt="linear demo image"
-                        className="rounded-2xl"
-                      />
+                <WobbleCard containerClassName="bg-slate-900">
+                  <div className="grid grid-cols-3 gap-x-4 sm:gap-x-6 md:gap-x-10">
+                    <div className="col-span-1 2xl:col-span-3">
+                      <div className="flex w-full items-center justify-center">
+                        <img
+                          src="/farhan2.jpg"
+                          width={200}
+                          height={200}
+                          alt="linear demo image"
+                          className="rounded-2xl"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-span-2 2xl:col-span-3 flex flex-col justify-start sm:justify-center">
+                      <p className="mt-4 text-left text-thin text-[8px] sm-m:text-[10px] md-m:text-xs lg-m:text-sm md:text-base lg:text-lg 2xl:text-base/6 text-neutral-200">
+                        Full name is Muhammad Farhan Bin Abd Aziz,
+                      </p>
+                      <h2 className="text-left text-balance text-[8px] sm-m:text-[10px] md-m:text-xs lg-m:text-sm md:text-base lg:text-lg 2xl:text-2xl font-semibold tracking-[-0.015em] text-white">
+                        but you can call me Farhan!
+                      </h2>
                     </div>
                   </div>
-                  <div className="col-span-2 2xl:col-span-3 flex flex-col justify-start sm:justify-center">
-                    <p className="mt-4 text-left text-thin text-[8px] sm-m:text-[10px] md-m:text-xs lg-m:text-sm md:text-base lg:text-lg 2xl:text-base/6 text-neutral-200">
-                      Full name is Muhammad Farhan Bin Abd Aziz,
-                    </p>
-                    <h2 className="text-left text-balance text-[8px] sm-m:text-[10px] md-m:text-xs lg-m:text-sm md:text-base lg:text-lg 2xl:text-2xl font-semibold tracking-[-0.015em] text-white">
-                      but you can call me Farhan!
-                    </h2>
-                  </div>
-                </div>
-              </WobbleCard>
+                </WobbleCard>
+              </FadeInSection>
               <div className="col-span-3 2xl:col-span-2">
                 <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  <WobbleCard containerClassName="col-span-2 sm:col-span-1 h-auto bg-teal-950">
-                    <h2 className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                      018-2026040
-                    </h2>
-                    <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs md:text-base/6 text-neutral-200">
-                      Hit me up!
-                    </p>
-                    <div className="absolute xl:h-[150px] xl:w-[150px] 2xl:h-[150px] 2xl:w-[150px] -right-5 sm:-right-5 md:-right-5 xl:-right-10 2xl:-right-10 top-4 sm:top-12 md:top-24 overflow-hidden rounded-2xl">
-                      <img
-                        src="/iphone.jpeg"
-                        width={120}
-                        height={120}
-                        alt="linear demo image"
-                        className="object-cover"
-                      />
-                    </div>
-                    {/* <img
-                    src="/iphone.jpeg"
-                    width={500}
-                    height={500}
-                    alt="linear demo image"
-                    className="absolute -right-1 md:-right-1 lg:-right-[70%] top-14 object-contain rounded-2xl"
-                  /> */}
-                  </WobbleCard>
-                  <WobbleCard containerClassName="col-span-2 sm:col-span-1 h-auto bg-cyan-950">
-                    <p className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs lg:text-xl font-semibold tracking-[-0.015em] text-white">
-                      farhanaziz3112@gmail.com
-                    </p>
-                    <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs text-neutral-200">
-                      Let's connect!
-                    </p>
-                    <img
-                      src="/email.png"
-                      width={500}
-                      height={500}
-                      alt="linear demo image"
-                      className="absolute -right-[60%] md:-right-[65%] top-12 sm:top-16 md:top-24 object-contain rounded-2xl"
-                    />
-                  </WobbleCard>
-                  <WobbleCard containerClassName="col-span-2 bg-indigo-950 h-auto">
-                    <div className="grid grid-cols-2 h-full w-full gap-2">
-                      <div className="col-span-2 lg-m:col-span-1 flex flex-col justify-center">
-                        <h2 className="text-left text-balance text-xs md:text-base lg:text-2xl font-semibold tracking-[-0.015em] text-white">
-                          Full Stack Developer
-                        </h2>
-                        <p className="mt-4 text-left text-neutral-200 text-[10px] lg-m:text-xs md:text-base lg:text-lg">
-                          Turning ideas into functional and beautiful
-                          applications! Do check my skills below for more details.
-                        </p>
+                  <FadeInSection
+                    direction="top"
+                    className="col-span-2 sm:col-span-1"
+                  >
+                    <WobbleCard containerClassName="bg-teal-950 h-full">
+                      <h2 className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                        018-2026040
+                      </h2>
+                      <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs md:text-base/6 text-neutral-200">
+                        Hit me up!
+                      </p>
+                      <div className="absolute xl:h-[150px] xl:w-[150px] 2xl:h-[150px] 2xl:w-[150px] -right-5 sm:-right-5 md:-right-5 xl:-right-10 2xl:-right-10 top-4 sm:top-12 md:top-24 overflow-hidden rounded-2xl">
+                        <img
+                          src="/iphone.jpeg"
+                          width={120}
+                          height={120}
+                          alt="linear demo image"
+                          className="object-cover"
+                        />
                       </div>
-                      <div className="col-span-2 lg-m:col-span-1 flex h-full w-full">
-                        <div className="flex max-h-[16rem] w-full items-center justify-center">
-                          <img
-                            src="/coding2.png"
-                            width={1000}
-                            height={1000}
-                            alt="linear demo image"
-                            className="rounded-lg w-full max-h-[16rem]"
-                          />
+                    </WobbleCard>
+                  </FadeInSection>
+                  <FadeInSection
+                    direction="right"
+                    className="col-span-2 sm:col-span-1"
+                  >
+                    <WobbleCard containerClassName="bg-cyan-950 h-full">
+                      <p className="max-w-80 text-left text-balance text-xs lg-m:text-base sm:text-xs lg:text-xl font-semibold tracking-[-0.015em] text-white">
+                        farhanaziz3112@gmail.com
+                      </p>
+                      <p className="mt-4 max-w-[26rem] text-left text-xs lg-m:text-base sm:text-xs text-neutral-200">
+                        Let's connect!
+                      </p>
+                      <img
+                        src="/email.png"
+                        width={500}
+                        height={500}
+                        alt="linear demo image"
+                        className="absolute -right-[60%] md:-right-[65%] top-12 sm:top-16 md:top-24 object-contain rounded-2xl"
+                      />
+                    </WobbleCard>
+                  </FadeInSection>
+                  <FadeInSection direction="right" className="col-span-2">
+                    <WobbleCard containerClassName="bg-indigo-950 h-auto">
+                      <div className="grid grid-cols-2 h-full w-full gap-2">
+                        <div className="col-span-2 lg-m:col-span-1 flex flex-col justify-center">
+                          <h2 className="text-left text-balance text-xs md:text-base lg:text-2xl font-semibold tracking-[-0.015em] text-white">
+                            Full Stack Developer
+                          </h2>
+                          <p className="mt-4 text-left text-neutral-200 text-[10px] lg-m:text-xs md:text-base lg:text-lg">
+                            Turning ideas into functional and beautiful
+                            applications! Do check my skills below for more
+                            details.
+                          </p>
+                        </div>
+                        <div className="col-span-2 lg-m:col-span-1 flex h-full w-full">
+                          <div className="flex max-h-[16rem] w-full items-center justify-center">
+                            <img
+                              src="/coding2.png"
+                              width={1000}
+                              height={1000}
+                              alt="linear demo image"
+                              className="rounded-lg w-full max-h-[16rem]"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </WobbleCard>
+                    </WobbleCard>
+                  </FadeInSection>
                 </div>
               </div>
             </div>
@@ -671,16 +707,19 @@ export default function Home() {
               </CardWithMovingBorder>
             </div>
             <div className="flex flex-col lg:flex-row w-full mt-8 items-center pt-10">
-              <div className="flex-1 z-10 p-2">
+              <FadeInSection direction="left" className="flex-1 z-10 p-2">
                 <h2 className="text-center sm:text-left mb-4 text-black dark:text-white z-10 text-base sm:text-3xl">
                   Journey of my career
                 </h2>
                 <p className="text-center sm:text-left text-neutral-700 dark:text-neutral-300 text-xs sm:text-sm md:text-base">
-                  Explore my professional journey where each experience has shaped
-                  my skills and vision.
+                  Explore my professional journey where each experience has
+                  shaped my skills and vision.
                 </p>
-              </div>
-              <div className="hidden md:block flex flex-1 justify-center items-center">
+              </FadeInSection>
+              <FadeInSection
+                direction="right"
+                className="hidden md:block flex flex-1 justify-center items-center"
+              >
                 <CardContainer className="inter-var">
                   <CardItem translateZ="100" className="w-full">
                     <img
@@ -692,7 +731,7 @@ export default function Home() {
                     />
                   </CardItem>
                 </CardContainer>
-              </div>
+              </FadeInSection>
             </div>
           </section>
         </div>
@@ -723,7 +762,7 @@ export default function Home() {
               </CardWithMovingBorder>
             </div>
             <div className="flex flex-col lg:flex-row w-full mt-8 items-center pt-10">
-              <div className="flex-1 z-10 p-2">
+              <FadeInSection direction="left" className="flex-1 z-10 p-2">
                 <h2 className="text-center sm:text-left mb-4 text-black dark:text-white z-10 text-base sm:text-3xl">
                   Journey of my educations
                 </h2>
@@ -731,8 +770,11 @@ export default function Home() {
                   Here’s an overview of my academic journey that have paved the
                   way for my career.
                 </p>
-              </div>
-              <div className="hidden md:block flex flex-1 justify-center items-center">
+              </FadeInSection>
+              <FadeInSection
+                direction="right"
+                className="hidden md:block flex flex-1 justify-center items-center"
+              >
                 <CardContainer className="inter-var">
                   <CardItem translateZ="100" className="w-full">
                     <img
@@ -744,7 +786,7 @@ export default function Home() {
                     />
                   </CardItem>
                 </CardContainer>
-              </div>
+              </FadeInSection>
             </div>
           </section>
         </div>
@@ -792,19 +834,27 @@ export default function Home() {
                   <span className="text-base lg:text-2xl">
                     <FaCaretRight />
                   </span>
-                  <h1 className="text-base lg:text-2xl font-semibold">Skills</h1>
+                  <h1 className="text-base lg:text-2xl font-semibold">
+                    Skills
+                  </h1>
                 </div>
               </CardWithMovingBorder>
             </div>
-            <div className="px-0 sm:px-4 lg:px-10 2xl:px-40 w-full">
+            <FadeInSection
+              direction="bottom"
+              className="px-0 sm:px-4 lg:px-10 2xl:px-40 w-full"
+            >
               <HoverEffect items={skills} />
-            </div>
+            </FadeInSection>
           </div>
         </div>
         <div className="mt-20 w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
-          <section id="" className="relative pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full z-10">
+          <section
+            id=""
+            className="relative pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full z-10"
+          >
             <div className="flex flex-col w-full relative items-start justify-center">
               <div className="flex flex-col w-full relative items-center lg:items-start justify-center">
                 <CardWithMovingBorder
@@ -832,7 +882,10 @@ export default function Home() {
         <div className="mt-20 mb-44 w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative items-center justify-start flex flex-col">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_top,transparent_50%,black)]"></div>
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:linear-gradient(to_bottom,transparent_50%,black)]"></div>
-          <section id="contact" className="pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full">
+          <section
+            id="contact"
+            className="pt-20 py-16 md:py-32 px-4 sm:px-12 md:px-20 lg:px-32 xl:px-40 w-full"
+          >
             <div className="flex flex-col w-full relative items-start justify-center">
               <div className="flex flex-col w-full relative items-center lg:items-start justify-center">
                 <CardWithMovingBorder
@@ -850,7 +903,7 @@ export default function Home() {
                   </div>
                 </CardWithMovingBorder>
               </div>
-              <div className="grid grid-cols-1 lg-m:grid-cols-2 md:grid-cols-3 gap-0 md:gap-2 lg:gap-4 mt-10 w-full">
+              <FadeInSection className="grid grid-cols-1 lg-m:grid-cols-2 md:grid-cols-3 gap-0 md:gap-2 lg:gap-4 mt-10 w-full">
                 {contacts.map((contact, idx) => (
                   <div
                     key={contact.title}
@@ -879,7 +932,7 @@ export default function Home() {
                     </PinContainer>
                   </div>
                 ))}
-              </div>
+              </FadeInSection>
             </div>
           </section>
         </div>
@@ -893,18 +946,21 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </main>
       <div
-        className={`hidden md:block fixed top-0 right-0 h-full w-16 bg-gradient-to-l from-neutral-400 dark:from-indigo-950 to-transparent flex flex-col items-center justify-center transition-all duration-300 ease-in-out z-3000 ${hover ? "w-48" : "w-20"
-          }`}
+        className={`hidden md:block fixed top-0 right-0 h-full w-16 bg-gradient-to-l from-neutral-400 dark:from-indigo-950 to-transparent flex flex-col items-center justify-center transition-all duration-300 ease-in-out z-3000 ${
+          hover ? "w-48" : "w-20"
+        }`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="text-xl fixed top-1/2 right-4">{hover ? <div></div> : <FaEllipsisV />}</div>
+        <div className="text-xl fixed top-1/2 right-4">
+          {hover ? <div></div> : <FaEllipsisV />}
+        </div>
         <nav
-          className={`mt-10 pr-5 flex flex-col items-end space-y-4 text-white transition-opacity duration-300 ${hover ? "opacity-100" : "opacity-0"
-            } absolute top-20 left-0 w-full`}
+          className={`mt-10 pr-5 flex flex-col items-end space-y-4 text-white transition-opacity duration-300 ${
+            hover ? "opacity-100" : "opacity-0"
+          } absolute top-20 left-0 w-full`}
         >
           <a
             href="#about"

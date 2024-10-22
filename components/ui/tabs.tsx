@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { InfiniteMovingCards } from "./infinite-moving-cards";
 import { FaGithub } from "react-icons/fa";
+import FadeInSection from "@/components/fadeInSection";
 
 type Tab = {
   tag: string;

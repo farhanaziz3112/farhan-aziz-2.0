@@ -7,6 +7,7 @@ import { FaCode } from "react-icons/fa";
 import { VscSymbolInterface } from "react-icons/vsc";
 import { FaDatabase } from "react-icons/fa";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
+import FadeInSection from "@/components/fadeInSection";
 
 let interval: any;
 
@@ -47,58 +48,59 @@ export const CardStack = ({
   };
 
   return (
-    <div className="relative h-60 w-full flex items-center justify-center">
-      {cards.map((card, index) => {
-        return (
-          <motion.div
-            key={card.id}
-            className="absolute dark:bg-black bg-white h-30 w-56 sm:w-96 rounded-3xl p-4 shadow-xl border border-neutral-300 dark:border-white/[0.15] shadow-rose-500/[0.1] dark:shadow-rose-500/[0.25] flex flex-row justify-between"
-            style={{
-              transformOrigin: "center center",
-            }}
-            animate={{
-              // top: index * -CARD_OFFSET,
-              // scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
-              transform: `translateY(${index * -CARD_OFFSET}px) scale(${
-                1 - index * SCALE_FACTOR
-              })`,
-              zIndex: cards.length - index, //  decrease z-index for the cards that are behind
-            }}
-          >
-            <div className="flex flex-row justify-between items-center">
-              <span className="text-[10px] sm:text-sm md:text-base">
-                {card.type == "web" ? (
-                  <HiOutlineDesktopComputer  />
-                ) : card.type == "mobile" ? (
-                  <FaMobileAlt />
-                ) : card.type == "code" ? (
-                  <FaCode />
-                ) : card.type == "api" ? (
-                  <VscSymbolInterface />
-                ) : (
-                  <FaDatabase />
-                )}
-              </span>
-              <div className="ml-2 font-semibold text-[8px] sm:text-xs md:text-base text-neutral-700 dark:text-neutral-200">
-                {card.name}
+    <FadeInSection direction="left">
+      <div className="relative h-60 w-full flex items-center justify-center">
+        {cards.map((card, index) => {
+          return (
+            <motion.div
+              key={card.id}
+              className="absolute dark:bg-black bg-white h-30 w-56 sm:w-96 rounded-3xl p-4 shadow-xl border border-neutral-300 dark:border-white/[0.15] shadow-rose-500/[0.1] dark:shadow-rose-500/[0.25] flex flex-row justify-between"
+              style={{
+                transformOrigin: "center center",
+              }}
+              animate={{
+                // top: index * -CARD_OFFSET,
+                // scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
+                transform: `translateY(${index * -CARD_OFFSET}px) scale(${
+                  1 - index * SCALE_FACTOR
+                })`,
+                zIndex: cards.length - index, //  decrease z-index for the cards that are behind
+              }}
+            >
+              <div className="flex flex-row justify-between items-center">
+                <span className="text-[10px] sm:text-sm md:text-base">
+                  {card.type == "web" ? (
+                    <HiOutlineDesktopComputer />
+                  ) : card.type == "mobile" ? (
+                    <FaMobileAlt />
+                  ) : card.type == "code" ? (
+                    <FaCode />
+                  ) : card.type == "api" ? (
+                    <VscSymbolInterface />
+                  ) : (
+                    <FaDatabase />
+                  )}
+                </span>
+                <div className="ml-2 font-semibold text-[8px] sm:text-xs md:text-base text-neutral-700 dark:text-neutral-200">
+                  {card.name}
+                </div>
               </div>
-            </div>
 
-            {/* <div className="font-semibold text-xl text-neutral-700 dark:text-neutral-200">
+              {/* <div className="font-semibold text-xl text-neutral-700 dark:text-neutral-200">
               {card.name}
             </div> */}
-            <div className="flex space-x-1 justify-center items-center">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <span
-                  key={i}
-                  className={`h-1 w-1 sm:h-2.5 sm:w-2.5 rounded-full ${
-                    i < card.skillpoint ? "bg-blue-500" : "bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
+              <div className="flex space-x-1 justify-center items-center">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1 w-1 sm:h-2.5 sm:w-2.5 rounded-full ${
+                      i < card.skillpoint ? "bg-blue-500" : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
 
-            {/* <div>
+              {/* <div>
               <p className="text-neutral-500 font-medium dark:text-white">
                 {card.name}
               </p>
@@ -106,9 +108,10 @@ export const CardStack = ({
                 {card.designation}
               </p>
             </div> */}
-          </motion.div>
-        );
-      })}
-    </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </FadeInSection>
   );
 };
